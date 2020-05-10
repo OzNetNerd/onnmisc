@@ -33,5 +33,3 @@ Example usage:
 * Email: [will@oznetnerd.com](mailto:will@oznetnerd.com)
 
 """
-
-from .csv_funcs import *
