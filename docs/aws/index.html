@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.7.5" />
-<title>onnmisc API documentation</title>
-<meta name="description" content="Miscellaneous functions used to fulfill common requirements …" />
+<title>onnmisc.aws API documentation</title>
+<meta name="description" content="" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
@@ -17,88 +17,14 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>onnmisc</code></h1>
+<h1 class="title">Namespace <code>onnmisc.aws</code></h1>
 </header>
 <section id="section-intro">
-<p>Miscellaneous functions used to fulfill common requirements</p>
-<h2 id="example">Example</h2>
-<p>Example CSV file, <code>accounts.csv</code>:</p>
-<pre><code>Id,Email
-1,john@example.com
-2,jane@example.com
-</code></pre>
-<p>Example usage:</p>
-<pre><code>from pprint import pprint
-
-list_output = csv_to_list('accounts.csv')
-pprint(list_output)
-[{'Email': 'john@example.com', 'Id': '1'},
-{'Email': 'jane@example.com', 'Id': '2'}]
-
-dict_ouput = csv_to_dict('Id', 'accounts.csv')
-pprint(dict_ouput)
-{'1': {'Email': 'john@example.com'}, '2': {'Email': 'jane@example.com'}}
-</code></pre>
-<h2 id="installation">Installation</h2>
-<pre><code>pip3 install onnmisc
-</code></pre>
-<h2 id="contact">Contact</h2>
-<ul>
-<li>Code: <a href="https://github.com/OzNetNerd/onnmisc">onnmisc</a></li>
-<li>Blog: <a href="https://oznetnerd.com">oznetnerd.com</a></li>
-<li>Email: <a href="mailto:will@oznetnerd.com">will@oznetnerd.com</a></li>
-</ul>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">&#34;&#34;&#34;Miscellaneous functions used to fulfill common requirements
-
-
-## Example
-
-Example CSV file, `accounts.csv`:
-
-    Id,Email
-    1,john@example.com
-    2,jane@example.com
-
-Example usage:
-
-    from pprint import pprint
-
-    list_output = csv_to_list(&#39;accounts.csv&#39;)
-    pprint(list_output)
-    [{&#39;Email&#39;: &#39;john@example.com&#39;, &#39;Id&#39;: &#39;1&#39;},
-    {&#39;Email&#39;: &#39;jane@example.com&#39;, &#39;Id&#39;: &#39;2&#39;}]
-
-    dict_ouput = csv_to_dict(&#39;Id&#39;, &#39;accounts.csv&#39;)
-    pprint(dict_ouput)
-    {&#39;1&#39;: {&#39;Email&#39;: &#39;john@example.com&#39;}, &#39;2&#39;: {&#39;Email&#39;: &#39;jane@example.com&#39;}}
-
-## Installation
-
-    pip3 install onnmisc
-
-## Contact
-
-* Code: [onnmisc](https://github.com/OzNetNerd/onnmisc)
-* Blog: [oznetnerd.com](https://oznetnerd.com)
-* Email: [will@oznetnerd.com](mailto:will@oznetnerd.com)
-
-&#34;&#34;&#34;
-from .csv import *
-from .aws.cfn import *</code></pre>
-</details>
 </section>
 <section>
 <h2 class="section-title" id="header-submodules">Sub-modules</h2>
 <dl>
-<dt><code class="name"><a title="onnmisc.aws" href="aws/index.html">onnmisc.aws</a></code></dt>
-<dd>
-<section class="desc"></section>
-</dd>
-<dt><code class="name"><a title="onnmisc.csv" href="csv.html">onnmisc.csv</a></code></dt>
+<dt><code class="name"><a title="onnmisc.aws.cfn" href="cfn.html">onnmisc.aws.cfn</a></code></dt>
 <dd>
 <section class="desc"></section>
 </dd>
@@ -114,17 +40,17 @@ from .aws.cfn import *</code></pre>
 <nav id="sidebar">
 <h1>Index</h1>
 <div class="toc">
-<ul>
-<li><a href="#example">Example</a></li>
-<li><a href="#installation">Installation</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+<ul></ul>
 </div>
 <ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="onnmisc" href="../index.html">onnmisc</a></code></li>
+</ul>
+</li>
 <li><h3><a href="#header-submodules">Sub-modules</a></h3>
 <ul>
-<li><code><a title="onnmisc.aws" href="aws/index.html">onnmisc.aws</a></code></li>
-<li><code><a title="onnmisc.csv" href="csv.html">onnmisc.csv</a></code></li>
+<li><code><a title="onnmisc.aws.cfn" href="cfn.html">onnmisc.aws.cfn</a></code></li>
 </ul>
 </li>
 </ul>
