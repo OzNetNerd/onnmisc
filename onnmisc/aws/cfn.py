@@ -83,11 +83,11 @@ def cfn_outputs_to_dict(cfn_outputs) -> dict:
 
             import boto3
             client = boto3.client('cloudformation')
-            stack = client.describe_stacks(StackName='Trend-DevOps-base-infrastructure-shared')
+            stack = client.describe_stacks(StackName='demo')
             outputs = stack['Stacks'][0]['Outputs']
             output_dict = outputs_to_dict(outputs)
             print(output_dict)
-            {'VpcId': 'vpc-hf73ls9374vdy3921', 'PublicSubnetId': 'subnet-k34mns3l120dy2i'}
+            {'VpcId': 'vpc-h4vfg234322', 'PublicSubnetId': 'subnet-k64564ghfhf'}
 
     Returns:
         CloudFormation outputs as a dict
@@ -99,3 +99,34 @@ def cfn_outputs_to_dict(cfn_outputs) -> dict:
         output[key] = value
 
     return output
+
+
+def cfn_tags_to_dict(cfn_tags) -> dict:
+    """Description:
+        Converts CloudFormation tags to a dict
+
+    Args:
+        cfn_tags: CloudFormation tags
+
+    Example:
+        Example usage:
+
+            import boto3
+            client = boto3.client('cloudformation')
+            described_cfn = client.describe_stacks(StackName='demo')
+            get_cfn_tags = described_cfn['Stacks'][0]['Tags']
+            tags = cfn_tags_to_dict(get_cfn_tags)
+            print(tags)
+            {'aws:cloud9:environment': 'rew34e242342421das032', 'aws:cloud9:owner': 'FJ3IK24JLSDF9233H4'}
+
+    Returns:
+        CloudFormation outputs as a dict
+    """
+    output = {}
+    for entry in cfn_tags:
+        key = entry['Key']
+        value = entry['Value']
+        output[key] = value
+
+    return output
+

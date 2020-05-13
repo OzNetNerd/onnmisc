@@ -109,11 +109,11 @@ def cfn_outputs_to_dict(cfn_outputs) -&gt; dict:
 
             import boto3
             client = boto3.client(&#39;cloudformation&#39;)
-            stack = client.describe_stacks(StackName=&#39;Trend-DevOps-base-infrastructure-shared&#39;)
+            stack = client.describe_stacks(StackName=&#39;demo&#39;)
             outputs = stack[&#39;Stacks&#39;][0][&#39;Outputs&#39;]
             output_dict = outputs_to_dict(outputs)
             print(output_dict)
-            {&#39;VpcId&#39;: &#39;vpc-hf73ls9374vdy3921&#39;, &#39;PublicSubnetId&#39;: &#39;subnet-k34mns3l120dy2i&#39;}
+            {&#39;VpcId&#39;: &#39;vpc-h4vfg234322&#39;, &#39;PublicSubnetId&#39;: &#39;subnet-k64564ghfhf&#39;}
 
     Returns:
         CloudFormation outputs as a dict
@@ -122,6 +122,36 @@ def cfn_outputs_to_dict(cfn_outputs) -&gt; dict:
     for entry in cfn_outputs:
         key = entry[&#39;OutputKey&#39;]
         value = entry[&#39;OutputValue&#39;]
+        output[key] = value
+
+    return output
+
+
+def cfn_tags_to_dict(cfn_tags) -&gt; dict:
+    &#34;&#34;&#34;Description:
+        Converts CloudFormation tags to a dict
+
+    Args:
+        cfn_tags: CloudFormation tags
+
+    Example:
+        Example usage:
+
+            import boto3
+            client = boto3.client(&#39;cloudformation&#39;)
+            described_cfn = client.describe_stacks(StackName=&#39;demo&#39;)
+            get_cfn_tags = described_cfn[&#39;Stacks&#39;][0][&#39;Tags&#39;]
+            tags = cfn_tags_to_dict(get_cfn_tags)
+            print(tags)
+            {&#39;aws:cloud9:environment&#39;: &#39;rew34e242342421das032&#39;, &#39;aws:cloud9:owner&#39;: &#39;FJ3IK24JLSDF9233H4&#39;}
+
+    Returns:
+        CloudFormation outputs as a dict
+    &#34;&#34;&#34;
+    output = {}
+    for entry in cfn_tags:
+        key = entry[&#39;Key&#39;]
+        value = entry[&#39;Value&#39;]
         output[key] = value
 
     return output</code></pre>
@@ -149,11 +179,11 @@ def cfn_outputs_to_dict(cfn_outputs) -&gt; dict:
 <p>Example usage:</p>
 <pre><code>import boto3
 client = boto3.client('cloudformation')
-stack = client.describe_stacks(StackName='Trend-DevOps-base-infrastructure-shared')
+stack = client.describe_stacks(StackName='demo')
 outputs = stack['Stacks'][0]['Outputs']
 output_dict = outputs_to_dict(outputs)
 print(output_dict)
-{'VpcId': 'vpc-hf73ls9374vdy3921', 'PublicSubnetId': 'subnet-k34mns3l120dy2i'}
+{'VpcId': 'vpc-h4vfg234322', 'PublicSubnetId': 'subnet-k64564ghfhf'}
 </code></pre>
 <h2 id="returns">Returns</h2>
 <dl>
@@ -176,11 +206,11 @@ print(output_dict)
 
             import boto3
             client = boto3.client(&#39;cloudformation&#39;)
-            stack = client.describe_stacks(StackName=&#39;Trend-DevOps-base-infrastructure-shared&#39;)
+            stack = client.describe_stacks(StackName=&#39;demo&#39;)
             outputs = stack[&#39;Stacks&#39;][0][&#39;Outputs&#39;]
             output_dict = outputs_to_dict(outputs)
             print(output_dict)
-            {&#39;VpcId&#39;: &#39;vpc-hf73ls9374vdy3921&#39;, &#39;PublicSubnetId&#39;: &#39;subnet-k34mns3l120dy2i&#39;}
+            {&#39;VpcId&#39;: &#39;vpc-h4vfg234322&#39;, &#39;PublicSubnetId&#39;: &#39;subnet-k64564ghfhf&#39;}
 
     Returns:
         CloudFormation outputs as a dict
@@ -189,6 +219,66 @@ print(output_dict)
     for entry in cfn_outputs:
         key = entry[&#39;OutputKey&#39;]
         value = entry[&#39;OutputValue&#39;]
+        output[key] = value
+
+    return output</code></pre>
+</details>
+</dd>
+<dt id="onnmisc.aws.cfn.cfn_tags_to_dict"><code class="name flex">
+<span>def <span class="ident">cfn_tags_to_dict</span></span>(<span>cfn_tags)</span>
+</code></dt>
+<dd>
+<section class="desc"><h2 id="description">Description</h2>
+<p>Converts CloudFormation tags to a dict</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>cfn_tags</code></strong></dt>
+<dd>CloudFormation tags</dd>
+</dl>
+<h2 id="example">Example</h2>
+<p>Example usage:</p>
+<pre><code>import boto3
+client = boto3.client('cloudformation')
+described_cfn = client.describe_stacks(StackName='demo')
+get_cfn_tags = described_cfn['Stacks'][0]['Tags']
+tags = cfn_tags_to_dict(get_cfn_tags)
+print(tags)
+{'aws:cloud9:environment': 'rew34e242342421das032', 'aws:cloud9:owner': 'FJ3IK24JLSDF9233H4'}
+</code></pre>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>CloudFormation</code> <code>outputs</code> <code>as</code> <code>a</code> <code>dict</code></dt>
+<dd>&nbsp;</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def cfn_tags_to_dict(cfn_tags) -&gt; dict:
+    &#34;&#34;&#34;Description:
+        Converts CloudFormation tags to a dict
+
+    Args:
+        cfn_tags: CloudFormation tags
+
+    Example:
+        Example usage:
+
+            import boto3
+            client = boto3.client(&#39;cloudformation&#39;)
+            described_cfn = client.describe_stacks(StackName=&#39;demo&#39;)
+            get_cfn_tags = described_cfn[&#39;Stacks&#39;][0][&#39;Tags&#39;]
+            tags = cfn_tags_to_dict(get_cfn_tags)
+            print(tags)
+            {&#39;aws:cloud9:environment&#39;: &#39;rew34e242342421das032&#39;, &#39;aws:cloud9:owner&#39;: &#39;FJ3IK24JLSDF9233H4&#39;}
+
+    Returns:
+        CloudFormation outputs as a dict
+    &#34;&#34;&#34;
+    output = {}
+    for entry in cfn_tags:
+        key = entry[&#39;Key&#39;]
+        value = entry[&#39;Value&#39;]
         output[key] = value
 
     return output</code></pre>
@@ -343,6 +433,7 @@ pprint(template)
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
 <li><code><a title="onnmisc.aws.cfn.cfn_outputs_to_dict" href="#onnmisc.aws.cfn.cfn_outputs_to_dict">cfn_outputs_to_dict</a></code></li>
+<li><code><a title="onnmisc.aws.cfn.cfn_tags_to_dict" href="#onnmisc.aws.cfn.cfn_tags_to_dict">cfn_tags_to_dict</a></code></li>
 <li><code><a title="onnmisc.aws.cfn.dict_to_cfn_params" href="#onnmisc.aws.cfn.dict_to_cfn_params">dict_to_cfn_params</a></code></li>
 <li><code><a title="onnmisc.aws.cfn.get_template" href="#onnmisc.aws.cfn.get_template">get_template</a></code></li>
 </ul>
