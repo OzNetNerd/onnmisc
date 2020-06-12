@@ -45,7 +45,7 @@ def create_secret(name, secret_string, description='', tags=(), client=DEFAULT_C
             raise
 
     # Create new version if secret already exists
-    client.secrets_manager_client.put_secret_value(
+    client.put_secret_value(
         SecretId=name,
         SecretString=secret_string,
         VersionStages=['AWSCURRENT'],
