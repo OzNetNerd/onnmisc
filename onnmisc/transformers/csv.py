@@ -18,10 +18,11 @@ def csv_to_dict(primary_key, input_file_path):
 
         Example usage:
 
-            from pprint import pprint
-
-            output = csv_to_dict('accounts.csv')
-            print(output)
+            >>> from onnmisc.transformers.csv import csv_to_dict
+            >>> from pprint import pprint
+            >>>
+            >>> output = csv_to_dict('accounts.csv')
+            >>> print(output)
             {'1': {'Email': 'john@example.com'}, '2': {'Email': 'jane@example.com'}}
 
     Returns:
@@ -57,10 +58,11 @@ def csv_to_list(input_file_path):
 
         Example usage:
 
-            from pprint import pprint
-
-            output = csv_to_list('accounts.csv')
-            pprint(output)
+            >>> from onnmisc.transformers.csv import csv_to_list
+            >>> from pprint import pprint
+            >>>
+            >>> output = csv_to_list('accounts.csv')
+            >>> pprint(output)
             [{'Email': 'john@example.com', 'Id': '1'},
             {'Email': 'jane@example.com', 'Id': '2'}]
 

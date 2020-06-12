@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.7.5" />
-<title>onnmisc.csv API documentation</title>
+<title>onnmisc.transformers.csv API documentation</title>
 <meta name="description" content="" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
@@ -17,7 +17,7 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>onnmisc.csv</code></h1>
+<h1 class="title">Module <code>onnmisc.transformers.csv</code></h1>
 </header>
 <section id="section-intro">
 <details class="source">
@@ -44,10 +44,11 @@ def csv_to_dict(primary_key, input_file_path):
 
         Example usage:
 
-            from pprint import pprint
-
-            output = csv_to_dict(&#39;accounts.csv&#39;)
-            print(output)
+            &gt;&gt;&gt; from onnmisc.transformers.csv import csv_to_dict
+            &gt;&gt;&gt; from pprint import pprint
+            &gt;&gt;&gt;
+            &gt;&gt;&gt; output = csv_to_dict(&#39;accounts.csv&#39;)
+            &gt;&gt;&gt; print(output)
             {&#39;1&#39;: {&#39;Email&#39;: &#39;john@example.com&#39;}, &#39;2&#39;: {&#39;Email&#39;: &#39;jane@example.com&#39;}}
 
     Returns:
@@ -83,10 +84,11 @@ def csv_to_list(input_file_path):
 
         Example usage:
 
-            from pprint import pprint
-
-            output = csv_to_list(&#39;accounts.csv&#39;)
-            pprint(output)
+            &gt;&gt;&gt; from onnmisc.transformers.csv import csv_to_list
+            &gt;&gt;&gt; from pprint import pprint
+            &gt;&gt;&gt;
+            &gt;&gt;&gt; output = csv_to_list(&#39;accounts.csv&#39;)
+            &gt;&gt;&gt; pprint(output)
             [{&#39;Email&#39;: &#39;john@example.com&#39;, &#39;Id&#39;: &#39;1&#39;},
             {&#39;Email&#39;: &#39;jane@example.com&#39;, &#39;Id&#39;: &#39;2&#39;}]
 
@@ -114,7 +116,7 @@ def csv_to_list(input_file_path):
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="onnmisc.csv.csv_to_dict"><code class="name flex">
+<dt id="onnmisc.transformers.csv.csv_to_dict"><code class="name flex">
 <span>def <span class="ident">csv_to_dict</span></span>(<span>primary_key, input_file_path)</span>
 </code></dt>
 <dd>
@@ -134,10 +136,11 @@ def csv_to_list(input_file_path):
 2,jane@example.com
 </code></pre>
 <p>Example usage:</p>
-<pre><code>from pprint import pprint
-
-output = csv_to_dict('accounts.csv')
-print(output)
+<pre><code>&gt;&gt;&gt; from onnmisc.transformers.csv import csv_to_dict
+&gt;&gt;&gt; from pprint import pprint
+&gt;&gt;&gt;
+&gt;&gt;&gt; output = csv_to_dict('accounts.csv')
+&gt;&gt;&gt; print(output)
 {'1': {'Email': 'john@example.com'}, '2': {'Email': 'jane@example.com'}}
 </code></pre>
 <h2 id="returns">Returns</h2>
@@ -166,10 +169,11 @@ print(output)
 
         Example usage:
 
-            from pprint import pprint
-
-            output = csv_to_dict(&#39;accounts.csv&#39;)
-            print(output)
+            &gt;&gt;&gt; from onnmisc.transformers.csv import csv_to_dict
+            &gt;&gt;&gt; from pprint import pprint
+            &gt;&gt;&gt;
+            &gt;&gt;&gt; output = csv_to_dict(&#39;accounts.csv&#39;)
+            &gt;&gt;&gt; print(output)
             {&#39;1&#39;: {&#39;Email&#39;: &#39;john@example.com&#39;}, &#39;2&#39;: {&#39;Email&#39;: &#39;jane@example.com&#39;}}
 
     Returns:
@@ -189,7 +193,7 @@ print(output)
     return output</code></pre>
 </details>
 </dd>
-<dt id="onnmisc.csv.csv_to_list"><code class="name flex">
+<dt id="onnmisc.transformers.csv.csv_to_list"><code class="name flex">
 <span>def <span class="ident">csv_to_list</span></span>(<span>input_file_path)</span>
 </code></dt>
 <dd>
@@ -207,10 +211,11 @@ print(output)
 2,jane@example.com
 </code></pre>
 <p>Example usage:</p>
-<pre><code>from pprint import pprint
-
-output = csv_to_list('accounts.csv')
-pprint(output)
+<pre><code>&gt;&gt;&gt; from onnmisc.transformers.csv import csv_to_list
+&gt;&gt;&gt; from pprint import pprint
+&gt;&gt;&gt;
+&gt;&gt;&gt; output = csv_to_list('accounts.csv')
+&gt;&gt;&gt; pprint(output)
 [{'Email': 'john@example.com', 'Id': '1'},
 {'Email': 'jane@example.com', 'Id': '2'}]
 </code></pre>
@@ -239,10 +244,11 @@ pprint(output)
 
         Example usage:
 
-            from pprint import pprint
-
-            output = csv_to_list(&#39;accounts.csv&#39;)
-            pprint(output)
+            &gt;&gt;&gt; from onnmisc.transformers.csv import csv_to_list
+            &gt;&gt;&gt; from pprint import pprint
+            &gt;&gt;&gt;
+            &gt;&gt;&gt; output = csv_to_list(&#39;accounts.csv&#39;)
+            &gt;&gt;&gt; pprint(output)
             [{&#39;Email&#39;: &#39;john@example.com&#39;, &#39;Id&#39;: &#39;1&#39;},
             {&#39;Email&#39;: &#39;jane@example.com&#39;, &#39;Id&#39;: &#39;2&#39;}]
 
@@ -276,13 +282,13 @@ pprint(output)
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="onnmisc" href="index.html">onnmisc</a></code></li>
+<li><code><a title="onnmisc.transformers" href="index.html">onnmisc.transformers</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="onnmisc.csv.csv_to_dict" href="#onnmisc.csv.csv_to_dict">csv_to_dict</a></code></li>
-<li><code><a title="onnmisc.csv.csv_to_list" href="#onnmisc.csv.csv_to_list">csv_to_list</a></code></li>
+<li><code><a title="onnmisc.transformers.csv.csv_to_dict" href="#onnmisc.transformers.csv.csv_to_dict">csv_to_dict</a></code></li>
+<li><code><a title="onnmisc.transformers.csv.csv_to_list" href="#onnmisc.transformers.csv.csv_to_list">csv_to_list</a></code></li>
 </ul>
 </li>
 </ul>

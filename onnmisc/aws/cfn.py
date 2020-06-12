@@ -13,13 +13,14 @@ def dict_to_cfn_params(dict_params) -> list:
     Example:
         Example usage:
 
-            params = {
+            >>> from onnmisc.aws.cfn import dict_to_cfn_params
+            >>> params = {
                 'AccountId': '123456789012',
                 'ExternalId': '098765432109',
                 }
-
-            cfn_params = dict_to_cfn_params(params)
-            pprint(cfn_params)
+            >>>
+            >>> cfn_params = dict_to_cfn_params(params)
+            >>> pprint(cfn_params)
             [{'ParameterKey': 'AccountId', 'ParameterValue': '123456789012'},
             {'ParameterKey': 'ExternalId', 'ParameterValue': '098765432109'}]
 
@@ -49,9 +50,11 @@ def get_template(stack_name) -> dict:
     Example:
         Example usage:
 
-            from pprint import pprint
-            template = get_template('demo_template')
-            pprint(template)
+            >>> from onnmisc.aws.cfn import get_template
+            >>> from pprint import pprint
+            >>>
+            >>> template = get_template('demo_template')
+            >>> pprint(template)
             {'Resources': {'Instance': {'Properties': {'ImageId': 'ami-0d1deba769f118333',
                                            'InstanceType': 't2.medium',
                                            'NetworkInterfaces': [{'AssociatePublicIpAddress': True,
@@ -81,12 +84,14 @@ def cfn_outputs_to_dict(cfn_outputs) -> dict:
     Example:
         Example usage:
 
-            import boto3
-            client = boto3.client('cloudformation')
-            stack = client.describe_stacks(StackName='demo')
-            outputs = stack['Stacks'][0]['Outputs']
-            output_dict = outputs_to_dict(outputs)
-            print(output_dict)
+            >>> from onnmisc.aws.cfn import cfn_outputs_to_dict
+            >>> import boto3
+            >>>
+            >>> client = boto3.client('cloudformation')
+            >>> stack = client.describe_stacks(StackName='demo')
+            >>> outputs = stack['Stacks'][0]['Outputs']
+            >>> output_dict = outputs_to_dict(outputs)
+            >>> print(output_dict)
             {'VpcId': 'vpc-h4vfg234322', 'PublicSubnetId': 'subnet-k64564ghfhf'}
 
     Returns:
@@ -111,12 +116,14 @@ def cfn_tags_to_dict(cfn_tags) -> dict:
     Example:
         Example usage:
 
-            import boto3
-            client = boto3.client('cloudformation')
-            described_cfn = client.describe_stacks(StackName='demo')
-            get_cfn_tags = described_cfn['Stacks'][0]['Tags']
-            tags = cfn_tags_to_dict(get_cfn_tags)
-            print(tags)
+            >>> from onnmisc.aws.cfn import cfn_tags_to_dict
+            >>> import boto3
+            >>>
+            >>> client = boto3.client('cloudformation')
+            >>> described_cfn = client.describe_stacks(StackName='demo')
+            >>> get_cfn_tags = described_cfn['Stacks'][0]['Tags']
+            >>> tags = cfn_tags_to_dict(get_cfn_tags)
+            >>> print(tags)
             {'aws:cloud9:environment': 'rew34e242342421das032', 'aws:cloud9:owner': 'FJ3IK24JLSDF9233H4'}
 
     Returns:
@@ -130,3 +137,37 @@ def cfn_tags_to_dict(cfn_tags) -> dict:
 
     return output
 
+
+def dict_to_cfn_tags(cfn_dict) -> list:
+    """Description:
+        Converts a dictionary to CloudFormation tags
+
+    Args:
+        cfn_dict: Dictionary to be converted
+
+    Example:
+        Example usage:
+
+            >>> from onnmisc.aws.cfn import dict_to_cfn_tags
+            >>>
+            >>> dict_tags = {'Name': 'nginx', 'Team': 'frontend'}
+            >>> tags = dict_to_cfn_tags(dict_tags)
+            >>> print(tags)
+            [{'Key': 'Name', 'Value': 'nginx'}, {'Key': 'Team', 'Value': 'frontend'}]
+
+
+    Returns:
+        List of CloudFormation tags
+
+    """
+    output = []
+
+    for key, value in cfn_dict.items():
+        entry = {
+            'Key': key,
+            'Value': value,
+        }
+
+        output.append(entry)
+
+    return output
