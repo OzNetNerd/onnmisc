@@ -5,7 +5,7 @@ with open('README.md', 'r') as f:
 
 setup(
     name='onnmisc',
-    version='0.0.8',
+    version='0.0.10',
     long_description=long_description,
     long_description_content_type='text/markdown',
     packages=find_packages(),
