@@ -1,10 +1,8 @@
 import boto3
 from botocore.exceptions import ClientError
 
-DEFAULT_CLIENT = boto3.client('secretsmanager')
 
-
-def create_secret(name, secret_string, description='', tags=(), client=DEFAULT_CLIENT) -> None:
+def create_secret(name, secret_string, description='', tags=(), sm_client=None) -> None:
     """Description:
         Creates/updates a Secrets Manager secret
 
@@ -13,7 +11,7 @@ def create_secret(name, secret_string, description='', tags=(), client=DEFAULT_C
         secret_string: Secret string
         description: Description of the secret
         tags: AWS tags
-        client: Boto3 client
+        sm_client: Boto3 client
 
     Example:
         Example usage:
@@ -30,7 +28,8 @@ def create_secret(name, secret_string, description='', tags=(), client=DEFAULT_C
 
     """
     try:
-        client.create_secret(
+        sm_client = sm_client if sm_client else boto3.client('secretsmanager')
+        sm_client.create_secret(
             Name=name,
             Description=description,
             SecretString=secret_string,
@@ -45,7 +44,7 @@ def create_secret(name, secret_string, description='', tags=(), client=DEFAULT_C
             raise
 
     # Create new version if secret already exists
-    client.put_secret_value(
+    sm_client.put_secret_value(
         SecretId=name,
         SecretString=secret_string,
         VersionStages=['AWSCURRENT'],

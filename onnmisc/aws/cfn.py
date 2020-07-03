@@ -40,12 +40,13 @@ def dict_to_cfn_params(dict_params) -> list:
     return cfn_params
 
 
-def get_template(stack_name) -> dict:
+def get_template(stack_name, cf_client=None) -> dict:
     """Description:
         Extracts CloudFormation templates from existing stack
 
     Args:
         stack_name: Name of the CloudFormation stack
+        cf_client: boto3 CloudFormation client
 
     Example:
         Example usage:
@@ -63,7 +64,7 @@ def get_template(stack_name) -> dict:
     Returns:
         CloudFormation template as a dict
     """
-    cf_client = boto3.client('cloudformation')
+    cf_client = cf_client if cf_client else boto3.client('cloudformation')
 
     # workaround for https://github.com/boto/botocore/issues/1889
     cf_client.meta.events.unregister('after-call.cloudformation.GetTemplate', json_decode_template_body)
